@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,7 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
@@ -36,11 +36,7 @@
     transform: rotate(360deg);
   }
 }
-/* thrhgegr */
 
-.App {
-  text-align: center;
-}
 form {
   border: 2px solid
     linear-gradient(
@@ -60,7 +56,7 @@ form {
     );
   align-items: center;
   width: 30%;
-
+  padding: 20px;
   margin: auto;
 
   background-image: linear-gradient(
@@ -79,7 +75,6 @@ form {
   );
 }
 .App-header {
-  /* background-color: #b0a8b9; */
   background-image: linear-gradient(
     to right top,
     #d1a76b,
@@ -101,4 +96,9 @@ form {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
+}
+#button {
+  background: #dfdee1;
+  border-color: rgb(144, 164, 144);
+  color: rgb(66, 66, 123);
 }

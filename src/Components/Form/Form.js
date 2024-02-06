@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { userSliceActions } from "../../redux/userSlice";
-
+// import { Validator } from "validator";
 import "./Form.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -17,16 +17,31 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(
-      userSliceActions.saveUser({
-        name,
-        email,
-        age,
-        password,
-      })
-    );
+    // const vaidation = {};
+    // if (!name) {
+    //   vaidation.name = "";
+    // } else if (!age) {
+    //   vaidation.age = "";
+    // } else if (!email) {
+    //   vaidation.email = "";
+    // } else if (!password) {
+    //   vaidation.password = "";
+    // } else {
 
-    navigate("/confirmation");
+    if (password === confPassword) {
+      dispatch(
+        userSliceActions.saveUser({
+          name,
+          email,
+          age,
+          password,
+        })
+      );
+      navigate("/confirmation");
+    } else {
+      alert("password not same");
+    }
+    // }
   };
 
   const handleChange = (e) => {
@@ -59,64 +74,70 @@ const Form = () => {
         >
           <h2> Project </h2>
           <h3> Sign-up Form </h3>
-          <label>Name:</label>
-          <br />
+
           <input
             type="text"
             value={name}
-            required
+            placeholder="Name"
             onChange={(e) => {
               handleChange(e);
             }}
+            required="required"
           />
+
           <br />
-          <label>Age:</label>
-          <br />
+
           <input
             type="number"
             value={age}
-            required
+            placeholder="Age"
             onChange={(e) => {
               handleAgeChange(e);
             }}
+            required="required"
           />
           <br />
-          <label>Email:</label>
-          <br />
+
           <input
             type="email"
             value={email}
-            placeholder="abc1@gmail.com"
-            required
+            placeholder="Email"
             onChange={(e) => {
               handleEmailChange(e);
             }}
+            required="required"
           />
           <br />
-          <label>Password:</label>
-          <br />
+
           <input
             type="password"
             value={password}
-            required
+            placeholder="Password"
             onChange={(e) => {
               handlePasswordChange(e);
             }}
+            required="required"
           />
-          <br />
-          <label>Confirm Password:</label>
+
           <br />
           <input
             type="password"
             value={confPassword}
-            required
+            placeholder="Confirm Password"
             onChange={(e) => {
               handleConfPasswordChange(e);
             }}
+            required="required"
           />
+
           <br />
-          {/* <input type="submit" value="Submit" /> */}
-          <button onClick={handleSubmit}>Submit</button>
+          <br />
+
+          <button id="button" type="submit" onClick={handleSubmit}>
+            Submit
+          </button>
+          <br />
+          <br />
         </form>
       </header>
     </div>

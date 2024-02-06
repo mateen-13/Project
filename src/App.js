@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 
 import Form from "./Components/Form/Form";
-import Confirmation from "./Components/Confirmation";
+import Confirmation from "./Components/confirmation/Confirmation";
 
 const router = createBrowserRouter([
   {
