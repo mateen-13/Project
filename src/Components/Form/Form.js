@@ -17,17 +17,6 @@ const Form = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // const vaidation = {};
-    // if (!name) {
-    //   vaidation.name = "";
-    // } else if (!age) {
-    //   vaidation.age = "";
-    // } else if (!email) {
-    //   vaidation.email = "";
-    // } else if (!password) {
-    //   vaidation.password = "";
-    // } else {
-
     if (password === confPassword) {
       dispatch(
         userSliceActions.saveUser({

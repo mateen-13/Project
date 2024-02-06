@@ -28,5 +28,3 @@ const userSlice = createSlice({
 
 export const userSliceActions = userSlice.actions;
 export default userSlice;
-
-// export default userSlice.reducer;
