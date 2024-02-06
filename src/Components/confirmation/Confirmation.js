@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Confirmation = () => {
   const userData = useSelector((state) => state.user);
+  console.log(userData);
 
   const navigate = useNavigate();
   // const dispatch = useDispath();
