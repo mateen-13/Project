@@ -18,28 +18,8 @@ const Confirmation = () => {
     return {};
   };
   return (
-    // <div id="container">
-    //   <div id="list">
-    // <span id="l1" class="li">
-    //   <span className="place">Name:</span>
-    //   {userData.name}
-    // </span>
-
-    // <span id="l2" class="li">
-    //   <span className="place">Age:</span> {userData.age}
-    // </span>
-
-    // <span id="l3" class="li">
-    //   <span className="place">Email:</span> {userData.email}
-    // </span>
-    //   </div>
-    // </div>
-
-    ////////NEW
-
     <div className="container">
       <h2 class="h">List Of Users</h2>
-
       <table className="table">
         <thead>
           <tr>
@@ -49,27 +29,24 @@ const Confirmation = () => {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>{userData.name}</td>
-            <td>{userData.age}</td>
-            <td>{userData.email}</td>
-            <td>
-              <span>
-                <button class="edit" onClick={gotoback}>
-                  Edit
-                </button>
+        {userData.users.map((data, id) => (
+          <tbody key={id} className="tbody">
+            <tr>
+              <td>{data.name}</td>
+              <td>{data.age}</td>
+              <td>{data.email}</td>
+              <span className="btn">
+                <button className="edit">Edit</button>
+                <button className="del">Delete</button>
               </span>
-              <span>
-                <button class="del" onClick={deleteItem}>
-                  Delete
-                </button>
-              </span>
-            </td>
-          </tr>
-        </tbody>
+            </tr>
+          </tbody>
+        ))}
       </table>
-      <button className="btn">Create +</button>
+
+      <button className="create" onClick={() => navigate("/")}>
+        Create +
+      </button>
     </div>
   );
 };
