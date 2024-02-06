@@ -5,12 +5,12 @@ import { userSliceActions } from "../../redux/userSlice";
 import "./Form.css";
 import { useNavigate } from "react-router-dom";
 
-const Form = () => {
+const Form = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(props.user ? props.user.name : "");
+  const [age, setAge] = useState(props.user ? props.user.age : "");
+  const [email, setEmail] = useState(props.user ? props.user.email : "");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
 
@@ -42,6 +42,20 @@ const Form = () => {
       alert("password not same");
     }
     // }
+  };
+
+  const editUser = (e) => {
+    e.preventDefault();
+    dispatch(
+      userSliceActions.editUser({
+        name,
+        email,
+        age,
+        password,
+      })
+    );
+
+    navigate("/confirmation");
   };
 
   const handleChange = (e) => {
@@ -133,7 +147,11 @@ const Form = () => {
           <br />
           <br />
 
-          <button id="button" type="submit" onClick={handleSubmit}>
+          <button
+            id="button"
+            type="submit"
+            onClick={props.user ? editUser : handleSubmit}
+          >
             Submit
           </button>
           <br />

@@ -1,22 +1,19 @@
 import { useSelector } from "react-redux";
 import "./confirmation.css";
-// import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import { userSliceActions } from "../../redux/userSlice";
 
 const Confirmation = () => {
+  const dispatch = useDispatch();
   const userData = useSelector((state) => state.user);
-  console.log(userData);
 
   const navigate = useNavigate();
-  // const dispatch = useDispath();
-  const gotoback = (e) => {
-    e.preventDefault();
-    navigate("./Form");
-  };
-  const deleteItem = (e) => {
-    e.preventDefault();
-    return {};
-  };
+
+  function deleteItem() {
+    dispatch(userSliceActions.deleteUser(this));
+  }
+
   return (
     <div className="container">
       <h2 class="h">List Of Users</h2>
@@ -36,8 +33,12 @@ const Confirmation = () => {
               <td>{data.age}</td>
               <td>{data.email}</td>
               <span className="btn">
-                <button className="edit">Edit</button>
-                <button className="del">Delete</button>
+                <NavLink to="/edit" state={data}>
+                  Edit
+                </NavLink>
+                <button className="del" onClick={deleteItem.bind(data.email)}>
+                  Delete
+                </button>
               </span>
             </tr>
           </tbody>
