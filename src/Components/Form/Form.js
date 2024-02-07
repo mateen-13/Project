@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { userSliceActions } from "../../redux/userSlice";
-// import { Validator } from "validator";
+
 import "./Form.css";
 import { useNavigate } from "react-router-dom";
 
@@ -80,57 +80,57 @@ const Form = (props) => {
 
           <input
             type="text"
+            required
             value={name}
             placeholder="Name"
             onChange={(e) => {
               handleChange(e);
             }}
-            required="required"
           />
 
           <br />
 
           <input
             type="number"
+            required
             value={age}
             placeholder="Age"
             onChange={(e) => {
               handleAgeChange(e);
             }}
-            required="required"
           />
           <br />
 
           <input
             type="email"
+            required
             value={email}
             placeholder="Email"
             onChange={(e) => {
               handleEmailChange(e);
             }}
-            required="required"
           />
           <br />
 
           <input
             type="password"
+            required
             value={password}
             placeholder="Password"
             onChange={(e) => {
               handlePasswordChange(e);
             }}
-            required="required"
           />
 
           <br />
           <input
             type="password"
+            required
             value={confPassword}
             placeholder="Confirm Password"
             onChange={(e) => {
               handleConfPasswordChange(e);
             }}
-            required="required"
           />
 
           <br />
