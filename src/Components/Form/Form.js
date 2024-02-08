@@ -4,6 +4,7 @@ import { userSliceActions } from "../../redux/userSlice";
 
 import "./Form.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Form = (props) => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const Form = (props) => {
   const [confPassword, setConfPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (name.trim() === "") {
@@ -30,15 +31,25 @@ const Form = (props) => {
     //   return;
     // } else
     if (password === confPassword) {
-      dispatch(
-        userSliceActions.saveUser({
-          name,
-          email,
-
-          password,
-        })
+      await axios({
+        method: "POST",
+        url: "http://localhost:5000/createUser",
+        data: { name, email, password },
+      }).then(
+        (res) => {
+          dispatch(
+            userSliceActions.saveUser({
+              name,
+              email,
+              password,
+            })
+          );
+          navigate("/confirmation");
+        },
+        (err) => {
+          console.log(err);
+        }
       );
-      navigate("/confirmation");
     } else {
       alert("password not same");
     }
