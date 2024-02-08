@@ -28,24 +28,11 @@
 }
 
 form {
-  border: 2px solid
-    linear-gradient(
-      to right top,
-      #b984a2,
-      #b887b0,
-      #b28cbf,
-      #a991cd,
-      #9a98db,
-      #5a5c5f,
-      #77a9e6,
-      #4c8ebc,
-      #78c4e7,
-      #3b5961,
-      #7fc4cc,
-      #93c8c5
-    );
+  border: 2px solid none;
+
   align-items: center;
-  width: 30%;
+  width: auto;
+
   padding: 20px;
   margin: auto;
 
@@ -63,13 +50,13 @@ form {
     #6dbfd5,
     #93c8c5
   );
+  /* background-color: none; */
 }
 .App-header {
   background-image: linear-gradient(
     to right top,
     #d1a76b,
-    /* #d78e6f, */ #cf787e,
-    #b76b90,
+    /* #d78e6f, */ #b76b90,
     #90669c,
     #7a72af,
     #5b7ebb,

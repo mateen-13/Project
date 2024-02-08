@@ -16,7 +16,7 @@ const Confirmation = () => {
 
   return (
     <div className="container">
-      <h2 class="h">List Of Users</h2>
+      <h2 className="h">List Of Users</h2>
       <table className="table">
         <thead>
           <tr>

@@ -22,13 +22,10 @@ const Form = (props) => {
       setError("This Field Is Required");
       return;
     }
-    // if (age.trim() === "") {
-    //   setError("This Field Is Required");
-    //   return;
-    // }
-    //  else if (email.trim() === "") {
-    //   setError("This Field Is Required");
-    //   return;
+    if (email.trim() === "") {
+      setError("This Field Is Required");
+      return;
+    }
     // } else if (password.trim() === "") {
     //   setError("This Field Is Required");
     //   return;
@@ -110,9 +107,8 @@ const Form = (props) => {
             handleSubmit(e);
           }}
         >
-          <h2> Project </h2>
+          {/* <h2> Project </h2> */}
           <h3> Sign-up Form </h3>
-
           <input
             type="text"
             required
@@ -122,12 +118,12 @@ const Form = (props) => {
               handleChange(e);
             }}
           />
+          <br />
           {error && (
-            <div class="error" style={{ color: "#FF1E00" }}>
+            <div className="error" style={{ color: "#FF1E00" }}>
               {error}
             </div>
           )}
-          <br />
 
           <input
             type="email"
@@ -138,13 +134,12 @@ const Form = (props) => {
               handleEmailChange(e);
             }}
           />
-          {/* {error && (
+          <br />
+          {error && (
             <div class="error" style={{ color: "#FF1E00" }}>
               {error}
             </div>
-          )} */}
-          <br />
-
+          )}
           <input
             type="password"
             required
@@ -169,10 +164,8 @@ const Form = (props) => {
               handleConfPasswordChange(e);
             }}
           />
-
           <br />
           <br />
-
           <button
             id="button"
             type="submit"
