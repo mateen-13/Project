@@ -21,8 +21,7 @@ const Form = (props) => {
     if (name.trim() === "") {
       setError("This Field Is Required");
       return;
-    }
-    if (email.trim() === "") {
+    } else if (email.trim() === "") {
       setError("This Field Is Required");
       return;
     }
