@@ -21,7 +21,7 @@ const Confirmation = () => {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Age</th>
+
             <th>Email</th>
             <th>Actions</th>
           </tr>
@@ -30,7 +30,7 @@ const Confirmation = () => {
           <tbody key={id} className="tbody">
             <tr>
               <td>{data.name}</td>
-              <td>{data.age}</td>
+
               <td>{data.email}</td>
               <span className="btn">
                 <NavLink to="/edit" state={data}>

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  /* font-family: Fantasy; */
 }
 
 .App-logo {
@@ -60,7 +61,7 @@ form {
     #65b0e7,
     #63b8df,
     #6dbfd5,
-    /* #7fc4cc, */ #93c8c5
+    #93c8c5
   );
 }
 .App-header {
@@ -90,4 +91,10 @@ form {
   background: #dfdee1;
   border-color: rgb(144, 164, 144);
   color: rgb(66, 66, 123);
+}
+.error {
+  text-transform: lowercase;
+  /* justify-content: center; */
+  font-size: 0.9rem;
+  background-color: none;
 }

@@ -9,20 +9,36 @@ const Form = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [name, setName] = useState(props.user ? props.user.name : "");
-  const [age, setAge] = useState(props.user ? props.user.age : "");
+
   const [email, setEmail] = useState(props.user ? props.user.email : "");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (name.trim() === "") {
+      setError("This Field Is Required");
+      return;
+    }
+    // if (age.trim() === "") {
+    //   setError("This Field Is Required");
+    //   return;
+    // }
+    //  else if (email.trim() === "") {
+    //   setError("This Field Is Required");
+    //   return;
+    // } else if (password.trim() === "") {
+    //   setError("This Field Is Required");
+    //   return;
+    // } else
     if (password === confPassword) {
       dispatch(
         userSliceActions.saveUser({
           name,
           email,
-          age,
+
           password,
         })
       );
@@ -30,7 +46,6 @@ const Form = (props) => {
     } else {
       alert("password not same");
     }
-    // }
   };
 
   const editUser = (e) => {
@@ -39,7 +54,7 @@ const Form = (props) => {
       userSliceActions.editUser({
         name,
         email,
-        age,
+
         password,
       })
     );
@@ -48,19 +63,39 @@ const Form = (props) => {
   };
 
   const handleChange = (e) => {
-    setName(e.target.value);
-  };
+    // setName(e.target.value);
+    const newName = e.target.value;
+    setName(newName);
 
-  const handleAgeChange = (e) => {
-    setAge(e.target.value);
+    if (newName.trim() === "") {
+      setError("This Field is Required");
+    } else {
+      setError("");
+    }
   };
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    // setEmail(e.target.value);
+    const newemail = e.target.value;
+    setEmail(newemail);
+
+    if (newemail.trim() === "") {
+      setError("This Field is Required");
+    } else {
+      setError("");
+    }
   };
 
   const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+    // setPassword(e.target.value);
+    const newePass = e.target.value;
+    setPassword(newePass);
+
+    if (newePass.trim() === "") {
+      setError("This Field is Required");
+    } else {
+      setError("");
+    }
   };
 
   const handleConfPasswordChange = (e) => {
@@ -87,18 +122,11 @@ const Form = (props) => {
               handleChange(e);
             }}
           />
-
-          <br />
-
-          <input
-            type="number"
-            required
-            value={age}
-            placeholder="Age"
-            onChange={(e) => {
-              handleAgeChange(e);
-            }}
-          />
+          {error && (
+            <div class="error" style={{ color: "#FF1E00" }}>
+              {error}
+            </div>
+          )}
           <br />
 
           <input
@@ -110,6 +138,11 @@ const Form = (props) => {
               handleEmailChange(e);
             }}
           />
+          {/* {error && (
+            <div class="error" style={{ color: "#FF1E00" }}>
+              {error}
+            </div>
+          )} */}
           <br />
 
           <input
@@ -121,7 +154,11 @@ const Form = (props) => {
               handlePasswordChange(e);
             }}
           />
-
+          {/* {error && (
+            <div class="error" style={{ color: "#FF1E00" }}>
+              {error}
+            </div>
+          )} */}
           <br />
           <input
             type="password"
