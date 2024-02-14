@@ -55,18 +55,34 @@ const Form = (props) => {
     }
   };
 
-  const editUser = (e) => {
+  const editUser = async (e) => {
     e.preventDefault();
-    dispatch(
-      userSliceActions.editUser({
-        name,
+    await axios({
+      method: "PATCH",
+      url: "http://localhost:5000/update",
+      data: {
         email,
+        update: {
+          name,
+        },
+      },
+    }).then(
+      () => {
+        dispatch(
+          userSliceActions.editUser({
+            name,
+            email,
 
-        password,
-      })
+            password,
+          })
+        );
+
+        navigate("/confirmation");
+      },
+      () => {
+        console.log("Kuch gadbad hoya");
+      }
     );
-
-    navigate("/confirmation");
   };
 
   const handleChange = (e) => {

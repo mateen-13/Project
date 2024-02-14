@@ -3,6 +3,7 @@ import "./confirmation.css";
 import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { userSliceActions } from "../../redux/userSlice";
+import axios from "axios";
 
 const Confirmation = () => {
   const dispatch = useDispatch();
@@ -10,8 +11,20 @@ const Confirmation = () => {
 
   const navigate = useNavigate();
 
-  function deleteItem() {
-    dispatch(userSliceActions.deleteUser(this));
+  async function deleteItem() {
+    await axios({
+      method: "DELETE",
+      url: "http://localhost:5000/delUser",
+      data: { email: this },
+    }).then(
+      (res) => {
+        console.log("DELETED");
+        dispatch(userSliceActions.deleteUser(this));
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   return (
