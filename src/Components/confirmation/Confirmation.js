@@ -23,6 +23,7 @@ const Confirmation = () => {
       },
       (err) => {
         console.log(err);
+        // console.log("")
       }
     );
   }
