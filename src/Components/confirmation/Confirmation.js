@@ -4,12 +4,28 @@ import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { userSliceActions } from "../../redux/userSlice";
 import axios from "axios";
+import { useEffect } from "react";
 
 const Confirmation = () => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.user);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      await axios({
+        method: "GET",
+        url: "http://localhost:5000/getAllUsers",
+      }).then(
+        (data) => {
+          console.log(data);
+        },
+        () => {}
+      );
+    };
+    fetchUsers();
+  }, []);
 
   async function deleteItem() {
     await axios({
