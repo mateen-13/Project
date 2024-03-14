@@ -1,13 +1,22 @@
 .App {
   text-align: center;
-  /* font-family: Fantasy; */
 }
-
+.hie {
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 3px #ffffff;
+}
+.name {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 2px, rgba(0, 0, 0, 0.12) 0px 2px 4px,
+    rgba(0, 0, 0, 0.12) 0px 2px 3px, rgba(0, 0, 0, 0.17) 0px 2px 4px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 0.4rem;
+  margin: 0.4rem;
+  padding: 0.3rem;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -26,62 +35,64 @@
     transform: rotate(360deg);
   }
 }
+.iamge1 {
+  margin: 50px;
+}
 
 form {
-  border: 2px solid none;
+  border-radius: 25px;
+  padding: 5rem;
+  margin: 6.5rem;
 
-  align-items: center;
-  width: auto;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
-  padding: 20px;
-  margin: auto;
+  background-color: #5e656e;
 
-  background-image: linear-gradient(
-    to top right,
-    #b984a2,
-    #b887b0,
-    #b28cbf,
-    #a991cd,
-    #9a98db,
-    #89a1e2,
-    #77a9e6,
-    #65b0e7,
-    #63b8df,
-    #6dbfd5,
-    #93c8c5
-  );
-  /* background-color: none; */
+  position: absolute;
+  right: 0px;
 }
+
 .App-header {
-  background-image: linear-gradient(
-    to right top,
-    #d1a76b,
-    /* #d78e6f, */ #b76b90,
-    #90669c,
-    #7a72af,
-    #5b7ebb,
-    #2f89bf,
-    #10a6d4,
-    #00c3e3,
-    #2fdfed,
-    #5ffbf1
-  );
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  background-color: #3a4149;
+
   min-height: 100vh;
+
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
 }
+
 #button {
-  background: #dfdee1;
-  border-color: rgb(144, 164, 144);
-  color: rgb(66, 66, 123);
+  padding: 0.4rem;
+  margin: auto;
+  background: #ffffff;
+  border-color: transparent;
+  border-radius: 12px;
 }
+#button:hover {
+  background-color: #3a90fa;
+  box-shadow: 0 0.2rem 0.6rem 0 rgb(81, 58, 58),
+    0 17px 50px 0 rgba(255, 0, 0, 0.19);
+}
+
 .error {
+  flex: content;
   text-transform: lowercase;
-  /* justify-content: center; */
-  font-size: 0.9rem;
+  justify-content: center;
+  font-size: 0.7rem;
   background-color: none;
+}
+.bur {
+  display: flex;
+
+  gap: 4.4rem;
+  justify-content: space-between;
+  margin-right: 10px;
 }

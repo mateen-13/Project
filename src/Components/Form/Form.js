@@ -26,10 +26,7 @@ const Form = (props) => {
       setError("This Field Is Required");
       return;
     }
-    // } else if (password.trim() === "") {
-    //   setError("This Field Is Required");
-    //   return;
-    // } else
+
     if (password === confPassword) {
       await axios({
         method: "POST",
@@ -110,7 +107,6 @@ const Form = (props) => {
   };
 
   const handlePasswordChange = (e) => {
-    // setPassword(e.target.value);
     const newePass = e.target.value;
     setPassword(newePass);
 
@@ -133,72 +129,76 @@ const Form = (props) => {
             handleSubmit(e);
           }}
         >
-          {/* <h2> Project </h2> */}
-          <h3> Sign-up Form </h3>
-          <input
-            type="text"
-            required
-            value={name}
-            placeholder="Name"
-            onChange={(e) => {
-              handleChange(e);
-            }}
-          />
-          <br />
-          {error && (
-            <div className="error" style={{ color: "#FF1E00" }}>
-              {error}
-            </div>
-          )}
+          <h3 className="hie"> Sign-up Form </h3>
+          <div>
+            <input
+              className="name"
+              type="text"
+              required
+              value={name}
+              placeholder="Name"
+              onChange={(e) => {
+                handleChange(e);
+              }}
+            />
+          </div>
+          {error && <div className="error">{error}</div>}
 
-          <input
-            type="email"
-            required
-            value={email}
-            placeholder="Email"
-            onChange={(e) => {
-              handleEmailChange(e);
-            }}
-          />
+          <div>
+            <input
+              className="name"
+              type="email"
+              required
+              value={email}
+              placeholder="Email"
+              onChange={(e) => {
+                handleEmailChange(e);
+              }}
+            />
+          </div>
+          {/* <br /> */}
+          {error && <div class="error">{error}</div>}
+
+          <div>
+            <input
+              className="name"
+              type="password"
+              required
+              value={password}
+              placeholder="Password"
+              onChange={(e) => {
+                handlePasswordChange(e);
+              }}
+            />
+          </div>
+
+          <div>
+            <input
+              className="name"
+              type="password"
+              required
+              value={confPassword}
+              placeholder="Confirm Password"
+              onChange={(e) => {
+                handleConfPasswordChange(e);
+              }}
+            />
+          </div>
           <br />
-          {error && (
-            <div class="error" style={{ color: "#FF1E00" }}>
-              {error}
-            </div>
-          )}
-          <input
-            type="password"
-            required
-            value={password}
-            placeholder="Password"
-            onChange={(e) => {
-              handlePasswordChange(e);
-            }}
-          />
-          {/* {error && (
-            <div class="error" style={{ color: "#FF1E00" }}>
-              {error}
-            </div>
-          )} */}
-          <br />
-          <input
-            type="password"
-            required
-            value={confPassword}
-            placeholder="Confirm Password"
-            onChange={(e) => {
-              handleConfPasswordChange(e);
-            }}
-          />
-          <br />
-          <br />
-          <button
-            id="button"
-            type="submit"
-            onClick={props.user ? editUser : handleSubmit}
-          >
-            Submit
-          </button>
+
+          <div className="bur">
+            <button
+              id="button"
+              type="submit"
+              onClick={props.user ? editUser : handleSubmit}
+            >
+              Submit
+            </button>
+
+            <button id="Edit" class="edit" onClick={console.log("helllo")}>
+              Edit
+            </button>
+          </div>
           <br />
           <br />
         </form>

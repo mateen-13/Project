@@ -39,14 +39,13 @@ const Confirmation = () => {
       },
       (err) => {
         console.log(err);
-        // console.log("")
       }
     );
   }
 
   return (
     <div className="container">
-      <h2 className="h">List Of Users</h2>
+      <h2 className="h">List Of Users logged In</h2>
       <table className="table">
         <thead>
           <tr>
